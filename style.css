@@ -9,10 +9,32 @@ body {
     background: #210939 url('images/Kuromi_Bg.png') center/cover no-repeat fixed;
     color: #fff;
     min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.bg-zoom {
+    position: fixed;
+    inset: 0;
+    background: #210939 url('images/Kuromi_Bg.png') center/cover no-repeat fixed;
+    z-index: 0;
+    transform: scale(1);
+    filter: brightness(1) saturate(1);
+    transition: transform 1.8s ease, filter 1.8s ease, opacity 0.8s ease;
+    pointer-events: none;
+}
+
+.bg-zoom.hidden {
+    display: none;
+}
+
+.bg-zoom.zooming {
+    transform: scale(1.8);
+    filter: brightness(1.8) saturate(1.2);
 }
 
 @media (max-width: 900px) {
-    body {
+    body,
+    .bg-zoom {
         background-image: url('images/Kuromi_Bg_ipad.png');
     }
 }
@@ -78,10 +100,16 @@ body {
     justify-content: center;
     align-items: center;
     padding: 4rem 1.5rem;
+    position: relative;
+    z-index: 2;
 }
 
 .portal-screen.loaded {
     opacity: 1;
+}
+
+.portal-screen.fading-out {
+    opacity: 0;
 }
 
 .portal-screen.hidden {
@@ -134,11 +162,16 @@ body {
     align-items: center;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.6s ease;
+    z-index: 3;
 }
 
 .moon-portal.visible {
     opacity: 1;
+}
+
+.moon-portal.zooming {
+    opacity: 0;
 }
 
 .moon-core {
@@ -216,7 +249,8 @@ body.darkened .portal-screen {
 }
 
 .moon-portal.zooming .moon-core {
-    transform: scale(12);
+    transform: scale(18);
+    filter: brightness(2.2) saturate(1.5);
 }
 
 .moon-portal.zooming {

@@ -3,6 +3,7 @@
     const portalScreen = document.querySelector('.portal-screen');
     const portalButton = document.getElementById('portal-button');
     const moonPortal = document.getElementById('moon-portal');
+    const bgZoom = document.querySelector('.bg-zoom');
     const quoteElement = document.getElementById('loading-quote');
 
     const quotes = [
@@ -76,7 +77,14 @@
     };
 
     const activatePortal = () => {
-        if (!moonPortal) return;
+        if (!moonPortal || !portalScreen || !bgZoom) return;
+
+        portalScreen.classList.add('fading-out');
+        bgZoom.classList.remove('hidden');
+        requestAnimationFrame(() => {
+            bgZoom.classList.add('zooming');
+        });
+
         moonPortal.classList.remove('hidden');
         moonPortal.classList.add('visible', 'active');
         document.body.classList.add('darkened');
@@ -84,11 +92,15 @@
 
         setTimeout(() => {
             moonPortal.classList.add('zooming');
+        }, 600);
+
+        setTimeout(() => {
+            bgZoom.style.opacity = '0';
         }, 1200);
 
         setTimeout(() => {
             window.location.href = 'portal.html';
-        }, 2600);
+        }, 2200);
     };
 
     if (portalButton) {
