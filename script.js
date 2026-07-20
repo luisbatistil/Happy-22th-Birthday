@@ -38,5 +38,5 @@ window.addEventListener('DOMContentLoaded', () => {
         if (pageContent) {
             pageContent.classList.add('loaded');
         }
-    }, 15000);
+    }, 18000);
 });
