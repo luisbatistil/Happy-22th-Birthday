@@ -6,9 +6,15 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: radial-gradient(circle at top, #ffebcd 0%, #fff1f0 35%, #ffd1dc 100%);
-    color: #333;
+    background: #210939 url('images/Kuromi_Bg.png') center/cover no-repeat fixed;
+    color: #fff;
     min-height: 100vh;
+}
+
+@media (max-width: 900px) {
+    body {
+        background-image: url('images/Kuromi_Bg_ipad.png');
+    }
 }
 
 .loading-screen {
