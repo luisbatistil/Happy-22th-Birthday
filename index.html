@@ -15,17 +15,19 @@
         </div>
     </div>
 
-    <main class="page-content">
-        <section class="hero">
-            <h1>Happy 22nd Birthday!</h1>
-            <p>Welcome to a special celebration page made just for you.</p>
+    <div class="portal-screen hidden">
+        <section class="portal-hero">
+            <h1>Moon Portal Awaits</h1>
+            <p>After the loading screen disappears, click the button to open the moon portal.</p>
+            <button id="portal-button" class="portal-button">Moon Portal</button>
         </section>
 
-        <section class="message">
-            <h2>Have a wonderful day!</h2>
-            <p>Enjoy the cake, music, and all the love sent your way.</p>
-        </section>
-    </main>
+        <div id="moon-portal" class="moon-portal hidden" aria-hidden="true">
+            <div class="moon-core"></div>
+            <div class="moon-glow"></div>
+            <div class="particles"></div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
