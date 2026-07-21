@@ -3,38 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moon Portal</title>
-    <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: radial-gradient(circle at center, #0a0a1f 0%, #050511 55%, #000000 100%);
-            color: #fff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-        }
-        .portal-page {
-            max-width: 720px;
-            padding: 2rem;
-        }
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1rem;
-        }
-        p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            opacity: 0.9;
-        }
-    </style>
+    <title>Happy 22nd Birthday</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="portal-page">
-        <h1>You have entered the Moon Portal</h1>
-        <p>The screen zoomed in and transported you to a new magical page.</p>
+<body class="portal-page-body">
+    <div class="portal-landing fade-in">
+        <!-- Full-Screen Layout: Polaroid Left, Message Right -->
+        <div class="portal-layout-container">
+            <!-- Left: Polaroid Frame -->
+            <div class="polaroid-container">
+                <div class="polaroid">
+                    <div class="polaroid-image">
+                        <!-- Couple photo placeholder - will be added as background-image later -->
+                        <div class="polaroid-placeholder">
+                            <span>📷</span>
+                        </div>
+                    </div>
+                    <div class="polaroid-caption">
+                        <p>Us</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Message Content -->
+            <div class="message-container">
+                <div class="message-content">
+                    <h1 class="birthday-title">Happy 22nd Birthday</h1>
+                    <p class="birthday-message">
+                        "Happy 22th Birthday my baby godbless and please enjoy the blessing baby na magkasama parin tayo baby I loveeeloveee lovee youuu soooo soooo muchyy hihi mwaaa mwaaaa mwaaaaa"
+                    </p>
+                    <p class="message-note">Handwriting Animation</p>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        // Trigger fade-in animation on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const portalLanding = document.querySelector('.portal-landing');
+            if (portalLanding) {
+                portalLanding.classList.add('visible');
+            }
+        });
+    </script>
 </body>
 </html>
