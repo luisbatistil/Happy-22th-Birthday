@@ -120,7 +120,12 @@
 
     if (!envelopes.length || !letterModal || !letterInner) return;
 
-    const letterText = `Happy 22nd Birthday, my love!\n\nEvery day with you is my favorite day.\nI love you more than words can say.\n\nForever yours,\n- Me`;
+    const letterTexts = {
+        '1': `Happy 22nd Birthday, my love!\n\nThis first letter is a tiny reminder of how grateful I am for every laugh we share.\n\nYou make ordinary days feel magical.\n\nLove always,\n- Me`,
+        '2': `Dear birthday girl,\n\nYou are my favorite story, every chapter sweeter than the last.\nThank you for being my person and my home.\n\nForever and ever,\n- Me`,
+        '3': `Sweetheart,\n\nOn your special day I just want you to know you are cherished, adored, and never taken for granted.\n\nAlways yours,\n- Me`,
+        '4': `My dearest,\n\nI hope this letter finds you smiling. My heart is full because you are in it.\n\nHappy birthday, my one and only.\n- Me`
+    };
 
     function typeLetter(text, target, speed = 30) {
         target.textContent = '';
@@ -148,6 +153,8 @@
     function openLetterModal(targetEnvelope) {
         envelopes.forEach((env) => env.classList.remove('open'));
         targetEnvelope.classList.add('open');
+        const id = targetEnvelope.dataset.letter || '1';
+        const letterText = letterTexts[id] || letterTexts['1'];
         setTimeout(() => {
             letterModal.classList.remove('hidden');
             letterModal.classList.add('visible');
