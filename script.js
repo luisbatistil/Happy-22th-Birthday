@@ -109,3 +109,70 @@
 
     setTimeout(showPortalScreen, 18000);
 });
+
+// Love letter interaction: envelope click -> modal with handwritten typing
+(() => {
+    const envelopes = document.querySelectorAll('.envelope');
+    const letterModal = document.getElementById('letter-modal');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const closeBtn = document.getElementById('close-letter');
+    const letterInner = document.getElementById('letter-inner');
+
+    if (!envelopes.length || !letterModal || !letterInner) return;
+
+    const letterText = `Happy 22nd Birthday, my love!\n\nEvery day with you is my favorite day.\nI love you more than words can say.\n\nForever yours,\n- Me`;
+
+    function typeLetter(text, target, speed = 30) {
+        target.textContent = '';
+        const cursor = document.createElement('span');
+        cursor.className = 'cursor';
+        target.appendChild(cursor);
+        let i = 0;
+        function step() {
+            if (i < text.length) {
+                const ch = text[i++];
+                if (ch === '\n') {
+                    target.insertBefore(document.createElement('br'), cursor);
+                } else {
+                    const node = document.createTextNode(ch);
+                    target.insertBefore(node, cursor);
+                }
+                setTimeout(step, speed);
+            } else {
+                cursor.remove();
+            }
+        }
+        step();
+    }
+
+    function openLetterModal(targetEnvelope) {
+        envelopes.forEach((env) => env.classList.remove('open'));
+        targetEnvelope.classList.add('open');
+        setTimeout(() => {
+            letterModal.classList.remove('hidden');
+            letterModal.classList.add('visible');
+            const paper = document.querySelector('.letter-paper');
+            if (paper) paper.classList.add('pop');
+            // start typing
+            typeLetter(letterText, letterInner, 28);
+        }, 420);
+    }
+
+    function closeLetterModal() {
+        const paper = document.querySelector('.letter-paper');
+        if (paper) paper.classList.remove('pop');
+        letterInner.textContent = '';
+        letterModal.classList.remove('visible');
+        // small delay before hiding to allow transition
+        setTimeout(() => {
+            letterModal.classList.add('hidden');
+            envelopes.forEach((env) => env.classList.remove('open'));
+        }, 300);
+    }
+
+    envelopes.forEach((envelope) => {
+        envelope.addEventListener('click', () => openLetterModal(envelope));
+    });
+    if (closeBtn) closeBtn.addEventListener('click', closeLetterModal);
+    if (modalOverlay) modalOverlay.addEventListener('click', closeLetterModal);
+})();

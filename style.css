@@ -1186,3 +1186,189 @@ body.darkened .portal-screen {
         font-size: 0.65rem;
     }
 }
+
+/* Love Letter / Envelope Styles */
+.love-letter-section {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.love-letter-grid {
+    position: relative;
+    width: min(100%, 520px);
+    height: 280px;
+}
+
+.love-letter-grid .envelope {
+    position: absolute;
+}
+
+.envelope-1 {
+    top: 8%;
+    left: 6%;
+    transform: rotate(-14deg) scale(1.02);
+}
+
+.envelope-2 {
+    top: 10%;
+    right: 8%;
+    transform: rotate(10deg) scale(0.98);
+}
+
+.envelope-3 {
+    bottom: 12%;
+    left: 20%;
+    transform: rotate(6deg) scale(0.94);
+}
+
+.envelope-4 {
+    bottom: 6%;
+    right: 18%;
+    transform: rotate(-12deg) scale(1.05);
+}
+
+.envelope {
+    width: 110px;
+    height: 76px;
+    background: linear-gradient(180deg,#fff 0%, #f2f0ff 100%);
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.28);
+    transform-origin: center center;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    border: 1px solid rgba(255,255,255,0.55);
+}
+
+.envelope:hover { transform: scale(1.08); }
+
+.envelope-flap {
+    position: absolute;
+    top: -6px;
+    left: 0;
+    right: 0;
+    height: 48px;
+    background: linear-gradient(180deg,#f5f2ff 0%, #e7deff 100%);
+    border-radius: 6px 6px 0 0;
+    transform-origin: top center;
+    box-shadow: inset 0 -6px 12px rgba(0,0,0,0.06);
+    transition: transform 0.45s cubic-bezier(.2,.9,.3,1);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.envelope-body {
+    position: absolute;
+    bottom: 6px;
+    left: 8px;
+    right: 8px;
+    top: 18px;
+    border-radius: 4px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.envelope-heart { color:#ff6b8a; font-size:18px; }
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg) translateY(-10px);
+}
+
+.love-instruction { font-size:0.95rem; color: #fff; opacity:0.9; }
+
+/* Modal */
+.modal.hidden { display: none; }
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    position: relative;
+    max-width: 760px;
+    width: calc(100% - 48px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    pointer-events: none;
+}
+
+.modal-close {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    z-index: 10010;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.letter {
+    width: 640px;
+    max-width: 100%;
+    pointer-events: auto;
+}
+
+.letter-paper {
+    background: #fffdf8;
+    border-radius: 8px;
+    padding: 2.4rem 2rem;
+    box-shadow: 0 28px 80px rgba(0,0,0,0.6);
+    transform: translateY(24px) scale(.96);
+    opacity: 0;
+    transition: transform 0.55s cubic-bezier(.2,.9,.3,1), opacity 0.4s ease;
+    font-family: 'Patrick Hand', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    color: #2b1b16;
+}
+
+.modal.visible .letter-paper,
+.letter-paper.pop {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.letter-inner {
+    min-height: 160px;
+    font-size: 1.55rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+.letter-inner .cursor {
+    display: inline-block;
+    width: 2px;
+    background: #2b1b16;
+    margin-left: 4px;
+    animation: blink 0.9s steps(1) infinite;
+    vertical-align: bottom;
+    height: 1.15em;
+}
+
+@keyframes blink { 50% { opacity: 0 } }
+
+@media (max-width: 640px) {
+    .envelope { width: 84px; height: 60px; }
+    .letter-paper { padding: 1.6rem; }
+    .letter-inner { font-size: 1.15rem; }
+}

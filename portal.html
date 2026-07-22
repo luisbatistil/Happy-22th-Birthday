@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy 22nd Birthday</title>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="portal-page-body">
@@ -271,5 +272,42 @@
             }
         });
     </script>
+    <!-- Letter modal and script -->
+    <div id="letter-modal" class="modal hidden">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="close-letter" aria-label="Close letter">×</button>
+            <div class="letter" id="letter">
+                <div class="letter-paper">
+                    <div class="letter-inner" id="letter-inner"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- love letter section (moved after gallery) -->
+    <div class="love-letter-section moved-after-gallery">
+        <div class="love-letter-grid">
+            <button class="envelope envelope-1" type="button" data-letter="1" title="Open letter 1">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body"><div class="envelope-heart">❤</div></div>
+            </button>
+            <button class="envelope envelope-2" type="button" data-letter="2" title="Open letter 2">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body"><div class="envelope-heart">❤</div></div>
+            </button>
+            <button class="envelope envelope-3" type="button" data-letter="3" title="Open letter 3">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body"><div class="envelope-heart">❤</div></div>
+            </button>
+            <button class="envelope envelope-4" type="button" data-letter="4" title="Open letter 4">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body"><div class="envelope-heart">❤</div></div>
+            </button>
+        </div>
+        <p class="love-instruction">Tap any letter</p>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
