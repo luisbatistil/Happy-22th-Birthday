@@ -196,7 +196,28 @@
         });
     }
 
+    function setupTreasureReveal() {
+        const treasureSection = document.querySelector('.treasure-hunt-section');
+        if (!treasureSection) return;
+
+        nodeElements.forEach((node) => node.classList.add('hidden-until-reveal'));
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    nodeElements.forEach((node) => node.classList.add('revealed'));
+                    obs.disconnect();
+                }
+            });
+        }, {
+            threshold: 0.2,
+        });
+
+        observer.observe(treasureSection);
+    }
+
     initTreasureImages();
+    setupTreasureReveal();
 
     function openTreasureModal(title, subtitle, text, imageSrc) {
         if (!treasureModal || !modalTitle || !modalSubtitle || !modalText || !modalImage) return;

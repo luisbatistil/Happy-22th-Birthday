@@ -1458,6 +1458,17 @@ margin-bottom: 104px;
     transform: scale(1.08);
 }
 
+.kuromi-node.hidden-until-reveal {
+    opacity: 0;
+    transform: scale(0.92);
+    pointer-events: none;
+}
+
+.kuromi-node.revealed {
+    opacity: 1;
+    pointer-events: auto;
+}
+
 .gift-node {
     width: 90px;
     height: 90px;
