@@ -1287,6 +1287,331 @@ margin-bottom: 104px;
 
 .love-instruction { font-size:0.95rem; color: #fff; opacity:0.9; }
 
+.treasure-hunt-section {
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    padding: 2.5rem 1.5rem;
+    background: rgba(27, 4, 37, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 36px;
+    backdrop-filter: blur(20px);
+    text-align: center;
+    color: #fdf7ff;
+}
+
+.treasure-hunt-intro {
+    margin-bottom: 1.5rem;
+}
+
+.treasure-hunt-intro h2 {
+    font-size: clamp(2rem, 2.5vw, 2.5rem);
+    margin-bottom: 0.55rem;
+}
+
+.treasure-hunt-intro p {
+    font-size: 1rem;
+    max-width: 720px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.86);
+}
+
+.treasure-hunt-visual {
+    display: flex;
+    justify-content: center;
+    margin: 1.75rem auto 0;
+    max-width: 320px;
+}
+
+.treasure-gift-button {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 28px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.treasure-gift-button:hover {
+    transform: translateY(-3px) scale(1.02);
+}
+
+.treasure-gift-button.unlocked {
+    box-shadow: 0 30px 72px rgba(224, 72, 218, 0.4);
+}
+
+.treasure-gift-button.unlocked .treasure-gift-image {
+    transform: scale(1.02);
+}
+
+.treasure-gift-image {
+    width: min(100%, 240px);
+    height: auto;
+    border-radius: 28px;
+    box-shadow: 0 26px 56px rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+    padding: 1rem;
+}
+
+.treasure-hunt-note {
+    margin-top: 1.2rem;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.treasure-hunt-panel {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 1.25rem 1.5rem;
+    background: rgba(69, 12, 95, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 28px;
+    backdrop-filter: blur(18px);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.treasure-label {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: #f6c1ff;
+    margin-bottom: 0.45rem;
+}
+
+.treasure-progress {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.45rem;
+}
+
+.treasure-progress span:first-child {
+    color: #ffd944;
+}
+
+.treasure-instruction {
+    max-width: 720px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.94);
+    line-height: 1.6;
+    font-size: 0.98rem;
+}
+
+.portal-landing {
+    position: relative;
+}
+
+.hero-kuromi-layer,
+.timeline-kuromi-layer,
+.gallery-kuromi-layer,
+.letter-kuromi-layer {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+.hero-kuromi-layer {
+    top: 0;
+    height: 360px;
+}
+
+.timeline-section,
+.gallery-section,
+.love-letter-section {
+    position: relative;
+}
+
+.timeline-kuromi-layer {
+    top: 0;
+    height: 240px;
+}
+
+.gallery-kuromi-layer {
+    top: 0;
+    height: 260px;
+}
+
+.letter-kuromi-layer {
+    top: 0;
+    height: 100%;
+}
+
+.kuromi-node {
+    position: absolute;
+    width: 76px;
+    height: 76px;
+    border-radius: 22px;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.24);
+    cursor: pointer;
+    transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
+    pointer-events: auto;
+    z-index: 12;
+}
+
+.kuromi-node:hover {
+    transform: scale(1.08);
+}
+
+.gift-node {
+    width: 90px;
+    height: 90px;
+}
+
+.decoy-node {
+    filter: saturate(0.95);
+}
+
+.kuromi-node.found {
+    filter: grayscale(0.2) saturate(1.2);
+    opacity: 0.9;
+    transform: scale(1.03);
+}
+
+.hero-node-1 { top: 28px; left: 10%; width: 86px; height: 86px; }
+.hero-node-2 { top: 22px; right: 14%; width: 92px; height: 92px; }
+.hero-node-3 { top: 138px; left: 10%; width: 82px; height: 82px; }
+.hero-node-4 { top: 90px; right: 26%; width: 84px; height: 84px; }
+
+.timeline-node-1 { top: 22px; left: 8%; width: 82px; height: 82px; }
+.timeline-node-2 { top: 28px; right: 12%; width: 78px; height: 78px; }
+.timeline-node-3 { bottom: 22px; left: 8%; width: 84px; height: 84px; }
+.timeline-node-4 { bottom: 22px; right: 20%; width: 80px; height: 80px; }
+
+.gallery-node-1 { top: 20px; left: 8%; width: 80px; height: 80px; }
+.gallery-node-2 { top: 24px; right: 18%; width: 88px; height: 88px; }
+.gallery-node-3 { bottom: 20px; right: 10%; width: 82px; height: 82px; }
+.gallery-node-4 { top: 14px; left: 32%; width: 84px; height: 84px; }
+
+.letter-node-1 { top: 16px; left: 10%; width: 92px; height: 92px; }
+.letter-node-2 { top: 14px; right: 12%; width: 86px; height: 86px; }
+.letter-node-3 { bottom: 24px; left: 10%; width: 88px; height: 88px; }
+.letter-node-4 { bottom: 18px; right: 14%; width: 92px; height: 92px; }
+.letter-node-5 { top: 30px; left: 42%; width: 84px; height: 84px; }
+
+.final-gift-container {
+    margin-top: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.final-gift-card {
+    width: min(100%, 320px);
+    min-height: 170px;
+    padding: 1.25rem 1.75rem;
+    border: none;
+    border-radius: 28px;
+    background: linear-gradient(135deg, #ffdb60 0%, #f18af2 100%);
+    color: #2d0a4a;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 22px 48px rgba(179, 101, 243, 0.35);
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.final-gift-card::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    width: 30px;
+    height: calc(100% + 24px);
+    background: rgba(255, 255, 255, 0.65);
+    transform: translateX(-50%);
+    border-radius: 18px;
+}
+
+.final-gift-card::after {
+    content: '';
+    position: absolute;
+    top: 42px;
+    left: -12px;
+    width: calc(100% + 24px);
+    height: 24px;
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 999px;
+}
+
+.final-gift-card:hover {
+    transform: translateY(-2px) scale(1.01);
+}
+
+.final-gift-card.unlocked {
+    background: linear-gradient(135deg, #a4f0ff 0%, #c482ff 100%);
+}
+
+.final-gift-note {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    max-width: 650px;
+    text-align: center;
+}
+
+.treasure-card {
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    width: min(100%, 680px);
+    max-width: 720px;
+    box-shadow: 0 36px 120px rgba(0, 0, 0, 0.35);
+    color: #2b1b16;
+}
+
+.treasure-header {
+    padding: 2rem 2rem 1rem;
+    background: linear-gradient(135deg, #7f3fe8 0%, #c67cff 100%);
+    color: #fff;
+}
+
+.treasure-header h2 {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.1;
+}
+
+.treasure-header p {
+    margin: 0.75rem 0 0;
+    font-size: 1rem;
+    opacity: 0.95;
+    max-width: 90%;
+}
+
+.treasure-image-wrap {
+    background: #f9f1ff;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.treasure-image-wrap img {
+    width: clamp(180px, 35vw, 320px);
+    height: auto;
+    border-radius: 22px;
+    object-fit: contain;
+}
+
+.treasure-modal-text {
+    padding: 1.5rem 2rem 2rem;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #352224;
+    white-space: pre-wrap;
+}
+
 /* Modal */
 .modal.hidden { display: none; }
 .modal {

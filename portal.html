@@ -9,6 +9,12 @@
 </head>
 <body class="portal-page-body">
     <div class="portal-landing fade-in">
+        <div class="hero-kuromi-layer">
+            <button type="button" class="kuromi-node gift-node hero-node hero-node-1" data-treasure-id="gift-1" data-image-src="images/kuromi_gift.png" aria-label="Hidden Kuromi gift 1"></button>
+            <button type="button" class="kuromi-node decoy-node hero-node hero-node-2" data-treasure-id="decoy-1" data-image-src="images/decoys_kuromi/kuromi decoy1.png" aria-label="Hidden Kuromi decoy"></button>
+            <button type="button" class="kuromi-node decoy-node hero-node hero-node-3" data-treasure-id="decoy-2" data-image-src="images/decoys_kuromi/kuromi decoy2.png" aria-label="Hidden Kuromi decoy"></button>
+            <button type="button" class="kuromi-node decoy-node hero-node hero-node-4" data-treasure-id="decoy-6" data-image-src="images/decoys_kuromi/kuromi decoy6.png" aria-label="Hidden Kuromi decoy"></button>
+        </div>
         <!-- Full-Screen Layout: Polaroid Left, Message Right -->
         <div class="portal-layout-container">
             <!-- Left: Polaroid Frame -->
@@ -41,6 +47,12 @@
         <!-- Timeline Section -->
         <section class="timeline-section">
             <h2 class="timeline-title">Bonding natin hehe</h2>
+            <div class="timeline-kuromi-layer">
+                <button type="button" class="kuromi-node gift-node timeline-node timeline-node-1" data-treasure-id="gift-2" data-image-src="images/kuromi_gift.png" aria-label="Hidden Kuromi gift 2"></button>
+                <button type="button" class="kuromi-node decoy-node timeline-node timeline-node-2" data-treasure-id="decoy-2" data-image-src="images/decoys_kuromi/kuromi decoy3.png" aria-label="Hidden Kuromi decoy"></button>
+                <button type="button" class="kuromi-node gift-node timeline-node timeline-node-3" data-treasure-id="gift-3" data-image-src="images/kuromi_gift.png" aria-label="Hidden Kuromi gift 3"></button>
+                <button type="button" class="kuromi-node decoy-node timeline-node timeline-node-4" data-treasure-id="decoy-7" data-image-src="images/decoys_kuromi/kuromi decoy7.png" aria-label="Hidden Kuromi decoy"></button>
+            </div>
             <div class="timeline-container">
                 <!-- Timeline Card 1 -->
                 <div class="timeline-card card-1">
@@ -139,6 +151,12 @@
         <!-- Masonry Gallery Section -->
         <section class="gallery-section">
             <h2 class="gallery-title">Gallery</h2>
+            <div class="gallery-kuromi-layer">
+                <button type="button" class="kuromi-node decoy-node gallery-node gallery-node-1" data-treasure-id="decoy-3" data-image-src="images/decoys_kuromi/kuromi decoy4.png" aria-label="Hidden Kuromi decoy"></button>
+                <button type="button" class="kuromi-node gift-node gallery-node gallery-node-2" data-treasure-id="gift-4" data-image-src="images/kuromi_gift.png" aria-label="Hidden Kuromi gift 4"></button>
+                <button type="button" class="kuromi-node gift-node gallery-node gallery-node-3" data-treasure-id="gift-5" data-image-src="images/kuromi_gift.png" aria-label="Hidden Kuromi gift 5"></button>
+                <button type="button" class="kuromi-node decoy-node gallery-node gallery-node-4" data-treasure-id="decoy-8" data-image-src="images/decoys_kuromi/kuromi decoy8.png" aria-label="Hidden Kuromi decoy"></button>
+            </div>
             <div class="masonry-gallery">
                 <!-- Gallery Item 1 -->
                 <div class="masonry-item item-1">
@@ -272,6 +290,7 @@
             }
         });
     </script>
+
     <!-- Letter modal and script -->
     <div id="letter-modal" class="modal hidden">
         <div class="modal-overlay" id="modal-overlay"></div>
@@ -305,7 +324,49 @@
                 <div class="envelope-body"><div class="envelope-heart">❤</div></div>
             </button>
         </div>
+        <div class="letter-kuromi-layer">
+            <button type="button" class="kuromi-node gift-node letter-node letter-node-1" data-treasure-id="gift-6" data-image-src="images/kuromi_gift.png" aria-label="Hidden Kuromi gift 6"></button>
+            <button type="button" class="kuromi-node decoy-node letter-node letter-node-2" data-treasure-id="decoy-4" data-image-src="images/decoys_kuromi/kuromi decoy6.png" aria-label="Hidden Kuromi decoy"></button>
+            <button type="button" class="kuromi-node gift-node letter-node letter-node-3" data-treasure-id="gift-7" data-image-src="images/kuromi_gift.png" aria-label="Hidden Kuromi gift 7"></button>
+            <button type="button" class="kuromi-node gift-node letter-node letter-node-4" data-treasure-id="gift-8" data-image-src="images/kuromi_gift.png" aria-label="Hidden Kuromi gift 8"></button>
+            <button type="button" class="kuromi-node decoy-node letter-node letter-node-5" data-treasure-id="decoy-9" data-image-src="images/decoys_kuromi/kuromi decoy9.png" aria-label="Hidden Kuromi decoy"></button>
+        </div>
         <p class="love-instruction">Tap any letter</p>
+    </div>
+
+    <section class="treasure-hunt-section">
+        <div class="treasure-hunt-intro">
+            <h2>Treasure Hunt Section</h2>
+            <p>Explore the page to find all 8 hidden Kuromi gifts. The hunt spans the hero, timeline, gallery, and letter areas.</p>
+        </div>
+        <div class="treasure-hunt-panel">
+            <div class="treasure-label">Kuromi Treasure Hunt</div>
+            <div class="treasure-progress"><span id="treasure-counter">0</span><span>/8</span> gifts found</div>
+            <p class="treasure-instruction">Find the 8 hidden Kuromi gifts across the page. Once all are collected, the final surprise is unlocked.</p>
+        </div>
+        <div class="treasure-hunt-visual">
+            <button type="button" id="treasure-hunt-gift" class="treasure-gift-button" aria-label="Open treasure gift">
+                <img src="images/kuromi_gift.png" alt="Treasure gift" class="treasure-gift-image" />
+            </button>
+        </div>
+        <p class="treasure-hunt-note">Tap the gift to open it once all 8 hidden Kuromi gifts are found.</p>
+    </section>
+
+    <div id="treasure-modal" class="modal hidden">
+        <div class="modal-overlay" id="treasure-modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="close-treasure" aria-label="Close popup">×</button>
+            <div class="treasure-card">
+                <div class="treasure-header">
+                    <h2 id="treasure-modal-title"></h2>
+                    <p id="treasure-modal-subtitle"></p>
+                </div>
+                <div class="treasure-image-wrap">
+                    <img id="treasure-modal-image" src="" alt="Treasure image" />
+                </div>
+                <div class="treasure-modal-text" id="treasure-modal-text"></div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
