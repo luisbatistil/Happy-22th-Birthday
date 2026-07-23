@@ -459,20 +459,14 @@ body.darkened .portal-screen {
   font-size: 5rem;
   color: rgba(91, 44, 231, 0.25);
   position: relative;
+  overflow: hidden;
 }
 
-.polaroid-placeholder::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    rgba(91, 44, 231, 0.04) 10px,
-    rgba(91, 44, 231, 0.04) 20px
-  );
-  pointer-events: none;
+.polaroid-placeholder img.polaroid-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .polaroid-caption {
