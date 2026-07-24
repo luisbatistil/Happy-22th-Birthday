@@ -318,10 +318,14 @@
     if (!envelopes.length || !letterModal || !letterInner) return;
 
     const letterTexts = {
-        '1': `Happy 22nd Birthday, my love!\n\nThis first letter is a tiny reminder of how grateful I am for every laugh we share.\n\nYou make ordinary days feel magical.\n\nLove always,\n- Me`,
-        '2': `Dear birthday girl,\n\nYou are my favorite story, every chapter sweeter than the last.\nThank you for being my person and my home.\n\nForever and ever,\n- Me`,
-        '3': `Sweetheart,\n\nOn your special day I just want you to know you are cherished, adored, and never taken for granted.\n\nAlways yours,\n- Me`,
-        '4': `My dearest,\n\nI hope this letter finds you smiling. My heart is full because you are in it.\n\nHappy birthday, my one and only.\n- Me`
+        '1': `Grabe baby ko Minsan nga naiisip ko na sana pwede ko ihinto yung oras kapag magkasama tayo. Kasi ang bilis lagi lumipas. Parang kakasimula palang ng araw tapos biglang gabi na agad. Gusto ko mas humaba pa yung oras natin. Gusto ko mas madami pa tayong kwentuhan. Mas madami pa tayong tawanan. Mas madami pa tayong memories. Kasi bawat memory na kasama kita sobrang special para sakin. \n- Baby`,
+        '2': `Babyyy gusto ko lang sabihin na sobrang proud ako sayo. Proud ako sa lahat ng ginagawa mo kahit feeling mo maliit lang yun. Proud ako kasi ang sipag sipag mo. Proud ako kasi kahit napapagod ka lumalaban ka padin. Proud ako kasi hindi ka basta sumusuko. Alam ko minsan may mga araw na parang gusto mo nalang humiga at wag gawin lahat pero ginagawa mo padin kasi gusto mo maabot mga pangarap mo. Kaya sobrang hanga ako sayo. Sana wag mo kakalimutan na nandito lang ako lagi para suportahan ka. Kahit maliit lang yung kaya kong gawin gusto ko maramdaman mo na hindi ka nag iisa.\n- Baby`,
+        '3': `I loveelovevee lovee youuu sooo sooo muchyy hihi. Sobrang sobra babyyy. Mahaaal na mahaal mahaaal kita lovelove koooooo. Hindi ko talaga mapapagod sabihin yan sayo. Kahit araw araw ko pa sabihin feeling ko kulang padin. Kasi habang tumatagal mas lalo lang kitang minamahal. Akala ko dati may limit yung pagmamahal pero nung dumating ka parang wala pala. Habang tumatagal lalo lang lumalalim. Lalo lang lumalaki. Lalo lang nagiging totoo.
+
+Sana sa birthday mo ngayon maging sobrang saya mo. Sana lahat ng hinihiling mo matupad. Sana healthy ka palagi. Sana safe ka lagi. Sana lagi kang may dahilan para ngumiti. Kasi gustong gusto ko yung ngiti mo. Ang cute cute mo pag nakangiti ka hihi. Pag masaya ka masaya din ako. Pag nalulungkot ka nalulungkot din ako. Kaya gusto ko lagi nandito para sayo. Gusto ko maging tao na pwede mong takbuhan kahit anong mangyari.\n- Baby`,
+        '4': `Happy Birthday ulit mahal ko. Sana pag gising mo araw araw lagi mong maalala na may isang tao na sobrang nagmamahal sayo. Isang tao na handang makinig sayo kahit anong oras. Isang tao na handang samahan ka sa lahat ng pangarap mo. Isang tao na handang tumawa kasama ka at umiyak kasama ka. At yung taong yun ako yun babyyy. Hindi man ako perfect pero totoo lahat ng pagmamahal ko sayo.
+
+Kaya sana sa bawat birthday mo ako padin yung nandyan. Sana sa susunod na taon ako padin yung unang babati sayo. Sana sa maraming taon pa ako padin yung tatawag sayong babyyy at mahal ko. Sana tayo padin hanggang sa pagtanda natin. Alam kong walang nakakaalam ng future pero isa lang sigurado ako araw araw kitang pipiliin. Araw araw kitang mamahalin. Araw araw kitang lalambingin. Araw araw sasabihin ko sayo na I loveelovevee lovee youuu sooo sooo muchyy hihi. Mahaaal na mahaal mahaaal kita lovelove koooooo. Mwaaa mwaaaa mwaaa mwaaaaa.\n- Baby`
     };
 
     function typeLetter(text, target, speed = 30) {
