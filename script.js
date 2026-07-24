@@ -243,7 +243,7 @@
         const alreadyFound = foundTreasureIds.has(treasureId);
 
         if (!isGift) {
-            openTreasureModal('Not a gift', 'Keep searching!', 'This Kuromi is a decoy and not holding a gift. The real gift Kuromi are hidden nearby.', 'images/kuromi_gift.png');
+            openTreasureModal('Not a gift', 'Keep searching!', 'This Kuromi is a decoy and not holding a gift. The real gift Kuromi are hidden nearby.', 'images/kuromi_nogift.png');
             return;
         }
 
