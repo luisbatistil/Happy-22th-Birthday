@@ -792,7 +792,7 @@ body.darkened .portal-screen {
 }
 
 .timeline-caption {
-  background: #fff;
+  background: #ffff;
   padding: 0.8rem 0.6rem;
   text-align: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -807,7 +807,7 @@ body.darkened .portal-screen {
 .timeline-caption p {
   margin: 0;
   font-size: 0.8rem;
-  color: #5c2ce7;
+  color: #070608;
   font-weight: 600;
   line-height: 1.4;
 }
