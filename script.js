@@ -114,52 +114,52 @@
 (() => {
     const treasures = {
         'gift-1': {
-            title: 'Gift Kuromi 1',
+            title: 'Grabe pwede na pwede na',
             subtitle: 'A hidden present awaits!',
             image: 'images/kuromi_gift.png',
-            text: 'You discovered the first Kuromi holding a gift. One memory unlocked!'
+            text: 'You discovered Kuromi holding a gift!'
         },
         'gift-2': {
-            title: 'Gift Kuromi 2',
+            title: 'nanalo ka ng 1million na kiss hehe',
             subtitle: 'Nice find!',
             image: 'images/kuromi_gift.png',
-            text: 'Second gift found. Keep searching among the Kuromi that look like they belong here.'
+            text: 'You discovered Kuromi holding a gift!'
         },
         'gift-3': {
-            title: 'Gift Kuromi 3',
+            title: 'What theeeee',
             subtitle: 'Another treasure!',
             image: 'images/kuromi_gift.png',
-            text: 'Three gifts down. The hunt is getting more exciting.'
+            text: 'You discovered Kuromi holding a gift!'
         },
         'gift-4': {
-            title: 'Gift Kuromi 4',
+            title: 'Dali lang to para sayo hehe',
             subtitle: 'You found one hidden in the gallery!',
             image: 'images/kuromi_gift.png',
-            text: 'Four gifts collected. You are doing great — only a few left to unlock the final surprise.'
+            text: 'You discovered Kuromi holding a gift!'
         },
         'gift-5': {
             title: 'Gift Kuromi 5',
-            subtitle: 'A sweet discovery!',
+            subtitle: 'Wooaaaaaahhh!!!',
             image: 'images/kuromi_gift.png',
-            text: 'Five gifts unlocked. These Kuromi are blending in beautifully with the page design.'
+            text: 'You discovered Kuromi holding a gift!'
         },
         'gift-6': {
             title: 'Gift Kuromi 6',
-            subtitle: 'Hidden in the letter area!',
+            subtitle: 'Galing sobra baby hihi!',
             image: 'images/kuromi_gift.png',
-            text: 'Six gifts found — only two more hidden Kuromi to find before the final surprise appears.'
+            text: 'You discovered Kuromi holding a gift!'
         },
         'gift-7': {
             title: 'Gift Kuromi 7',
-            subtitle: 'One more step closer!',
+            subtitle: 'Grabe professional ahh!',
             image: 'images/kuromi_gift.png',
-            text: 'Seven gifts collected. The last hidden Kuromi is waiting for you.'
+            text: 'You discovered Kuromi holding a gift!'
         },
         'gift-8': {
             title: 'Gift Kuromi 8',
-            subtitle: 'All gifts found!',
+            subtitle: 'galing baby!',
             image: 'images/kuromi_gift.png',
-            text: 'You discovered the eighth gift Kuromi. The final surprise is now unlocked—tap the final gift card below.'
+            text: 'You discovered Kuromi holding a gift!'
         }
     };
 
