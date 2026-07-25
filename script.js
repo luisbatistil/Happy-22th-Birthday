@@ -144,19 +144,19 @@
             text: 'You discovered Kuromi holding a gift!'
         },
         'gift-6': {
-            title: 'Gift Kuromi 6',
+            title: 'Talas talaga ng eyes mo baby',
             subtitle: 'Galing sobra baby hihi!',
             image: 'images/kuromi_gift.png',
             text: 'You discovered Kuromi holding a gift!'
         },
         'gift-7': {
-            title: 'Gift Kuromi 7',
+            title: 'Basic na basic ah',
             subtitle: 'Grabe professional ahh!',
             image: 'images/kuromi_gift.png',
             text: 'You discovered Kuromi holding a gift!'
         },
         'gift-8': {
-            title: 'Gift Kuromi 8',
+            title: 'IQ level 999999999999999',
             subtitle: 'galing baby!',
             image: 'images/kuromi_gift.png',
             text: 'You discovered Kuromi holding a gift!'
