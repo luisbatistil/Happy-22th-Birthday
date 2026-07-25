@@ -237,6 +237,8 @@
         }, 250);
     }
 
+    window.closeTreasureModal = closeTreasureModal;
+
     function handleTreasureClick(node, treasureId) {
         if (!treasureId) return;
         const isGift = treasureId.startsWith('gift-');
@@ -269,7 +271,7 @@
             }
             const note = document.querySelector('.treasure-hunt-note');
             if (note) {
-                note.textContent = 'Final surprise unlocked! Tap the gift to open it.';
+                note.textContent = 'Final surprise unlocked! Tap the gift to open the letter.';
             }
         }
     }
@@ -285,7 +287,9 @@
         finalGiftEl.addEventListener('click', () => {
             const count = foundTreasureIds.size;
             if (count === totalTreasures) {
-                openTreasureModal('Final Surprise!', 'A big gift box appears', 'Congratulations! You found all 8 gift-bearing Kuromi. The final surprise is yours: a long letter full of love and a special memory meant only for you.', 'images/Bunch_kuromi1.png');
+                if (window.openFinalLetterModal) {
+                    window.openFinalLetterModal();
+                }
             } else {
                 openTreasureModal('Keep searching', 'Not ready yet', `You need ${totalTreasures - count} more gift Kuromi before the final surprise can be unlocked. Explore the page and find the hidden gifts!`, 'images/kuromi_gift.png');
             }
@@ -296,7 +300,9 @@
         treasureGiftButton.addEventListener('click', () => {
             const count = foundTreasureIds.size;
             if (count === totalTreasures) {
-                openTreasureModal('Final Surprise!', 'Open the big gift', 'You found all 8 hidden Kuromi gifts. Enjoy the final surprise and the special message inside.', 'images/Bunch_kuromi1.png');
+                if (window.openFinalLetterModal) {
+                    window.openFinalLetterModal();
+                }
             } else {
                 openTreasureModal('Not ready yet', 'Find all gifts first', `You still need ${totalTreasures - count} more gift Kuromi before the final surprise can open. Keep searching!`, 'images/kuromi_gift.png');
             }
@@ -314,6 +320,9 @@
     const modalOverlay = document.getElementById('modal-overlay');
     const closeBtn = document.getElementById('close-letter');
     const letterInner = document.getElementById('letter-inner');
+    const letterActions = document.getElementById('letter-actions');
+    const finalSurpriseLink = document.getElementById('final-surprise-link');
+    let typingSession = 0;
 
     if (!envelopes.length || !letterModal || !letterInner) return;
 
@@ -328,13 +337,31 @@ Sana sa birthday mo ngayon maging sobrang saya mo. Sana lahat ng hinihiling mo m
 Kaya sana sa bawat birthday mo ako padin yung nandyan. Sana sa susunod na taon ako padin yung unang babati sayo. Sana sa maraming taon pa ako padin yung tatawag sayong babyyy at mahal ko. Sana tayo padin hanggang sa pagtanda natin. Alam kong walang nakakaalam ng future pero isa lang sigurado ako araw araw kitang pipiliin. Araw araw kitang mamahalin. Araw araw kitang lalambingin. Araw araw sasabihin ko sayo na I loveelovevee lovee youuu sooo sooo muchyy hihi. Mahaaal na mahaal mahaaal kita lovelove koooooo. Mwaaa mwaaaa mwaaa mwaaaaa.\n- Baby`
     };
 
-    function typeLetter(text, target, speed = 30) {
+    const finalLetterText = `My love,
+
+Happy 22nd birthday, baby. I know this day may feel like just another date on the calendar, but to me it is a beautiful reminder of the amazing person you are and the joy you bring into every day. Every laugh, every little moment, every quiet conversation, and every shared memory with you has become something I treasure more than words can say.
+
+You are the kind of person who makes ordinary days feel soft, warm, and full of love. You are the kind of person I think about with a smile, the kind of person I want to protect, support, and celebrate for a very long time. I hope today gives you all the comfort, happiness, and sweetness you deserve because you truly deserve the world and more.
+
+I may not be able to wrap the whole sky in a ribbon or fill the room with flowers and cake in one instant, but I hope this little surprise still feels like a warm embrace from me. A reminder that you are loved deeply, cherished endlessly, and thought of constantly. I hope your heart feels light today, your smile feels easy, and your day feels as beautiful as you are.
+
+Thank you for being you. Thank you for being my favorite person to talk to, laugh with, and dream about. I love you more than I can say, and I will keep choosing you, loving you, and celebrating you again and again.
+
+Always yours,
+Your baby`;
+
+    function typeLetter(text, target, speed = 30, onComplete) {
+        typingSession += 1;
+        const sessionId = typingSession;
         target.textContent = '';
         const cursor = document.createElement('span');
         cursor.className = 'cursor';
         target.appendChild(cursor);
         let i = 0;
         function step() {
+            if (sessionId !== typingSession) {
+                return;
+            }
             if (i < text.length) {
                 const ch = text[i++];
                 if (ch === '\n') {
@@ -346,9 +373,42 @@ Kaya sana sa bawat birthday mo ako padin yung nandyan. Sana sa susunod na taon a
                 setTimeout(step, speed);
             } else {
                 cursor.remove();
+                if (onComplete) {
+                    onComplete();
+                }
             }
         }
         step();
+    }
+
+    function resetLetterView() {
+        if (letterActions) {
+            letterActions.hidden = true;
+            letterActions.classList.remove('visible');
+        }
+        if (finalSurpriseLink) {
+            finalSurpriseLink.textContent = 'Open your next surprise';
+            finalSurpriseLink.setAttribute('href', 'final-page.html');
+        }
+    }
+
+    function showTypedLetter(text, options = {}) {
+        const { showActionButton = false, buttonLabel = 'Open your next surprise', buttonHref = 'final-page.html' } = options;
+        resetLetterView();
+        setTimeout(() => {
+            letterModal.classList.remove('hidden');
+            letterModal.classList.add('visible');
+            const paper = document.querySelector('.letter-paper');
+            if (paper) paper.classList.add('pop');
+            typeLetter(text, letterInner, 28, () => {
+                if (showActionButton && letterActions && finalSurpriseLink) {
+                    finalSurpriseLink.textContent = buttonLabel;
+                    finalSurpriseLink.setAttribute('href', buttonHref);
+                    letterActions.hidden = false;
+                    letterActions.classList.add('visible');
+                }
+            });
+        }, 420);
     }
 
     function openLetterModal(targetEnvelope) {
@@ -356,22 +416,26 @@ Kaya sana sa bawat birthday mo ako padin yung nandyan. Sana sa susunod na taon a
         targetEnvelope.classList.add('open');
         const id = targetEnvelope.dataset.letter || '1';
         const letterText = letterTexts[id] || letterTexts['1'];
-        setTimeout(() => {
-            letterModal.classList.remove('hidden');
-            letterModal.classList.add('visible');
-            const paper = document.querySelector('.letter-paper');
-            if (paper) paper.classList.add('pop');
-            // start typing
-            typeLetter(letterText, letterInner, 28);
-        }, 420);
+        showTypedLetter(letterText, { showActionButton: false });
     }
 
+    function openFinalLetterModal() {
+        showTypedLetter(finalLetterText, {
+            showActionButton: true,
+            buttonLabel: 'Open the next page',
+            buttonHref: 'final-page.html'
+        });
+    }
+
+    window.openFinalLetterModal = openFinalLetterModal;
+
     function closeLetterModal() {
+        typingSession += 1;
         const paper = document.querySelector('.letter-paper');
         if (paper) paper.classList.remove('pop');
         letterInner.textContent = '';
+        resetLetterView();
         letterModal.classList.remove('visible');
-        // small delay before hiding to allow transition
         setTimeout(() => {
             letterModal.classList.add('hidden');
             envelopes.forEach((env) => env.classList.remove('open'));
