@@ -364,7 +364,6 @@
   const closeBtn = document.getElementById("close-letter");
   const letterInner = document.getElementById("letter-inner");
   const letterActions = document.getElementById("letter-actions");
-  const finalSurpriseLink = document.getElementById("final-surprise-link");
   let typingSession = 0;
 
   if (!envelopes.length || !letterModal || !letterInner) return;
@@ -452,18 +451,10 @@ Your baby`;
       letterActions.hidden = true;
       letterActions.classList.remove("visible");
     }
-    if (finalSurpriseLink) {
-      finalSurpriseLink.textContent = "Open your next surprise";
-      finalSurpriseLink.setAttribute("href", "final-page.html");
-    }
   }
 
   function showTypedLetter(text, options = {}) {
-    const {
-      showActionButton = false,
-      buttonLabel = "Open your next surprise",
-      buttonHref = "final-page.html",
-    } = options;
+    const { showActionButton = false } = options;
     resetLetterView();
     setTimeout(() => {
       letterModal.classList.remove("hidden");
@@ -471,9 +462,7 @@ Your baby`;
       const paper = document.querySelector(".letter-paper");
       if (paper) paper.classList.add("pop");
       typeLetter(text, letterInner, 28, () => {
-        if (showActionButton && letterActions && finalSurpriseLink) {
-          finalSurpriseLink.textContent = buttonLabel;
-          finalSurpriseLink.setAttribute("href", buttonHref);
+        if (showActionButton && letterActions) {
           letterActions.hidden = false;
           letterActions.classList.add("visible");
         }
@@ -490,11 +479,7 @@ Your baby`;
   }
 
   function openFinalLetterModal() {
-    showTypedLetter(finalLetterText, {
-      showActionButton: true,
-      buttonLabel: "Open the next page",
-      buttonHref: "final-page.html",
-    });
+    showTypedLetter(finalLetterText, { showActionButton: false });
   }
 
   window.openFinalLetterModal = openFinalLetterModal;
